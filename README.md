@@ -1,53 +1,51 @@
-# NodeRed_Dashboard
-Dashboard for a Minecraft server
-# NodeRed_Dashboard
 
-A Docker Compose project that runs a Minecraft Java server alongside a Node-RED instance. Secrets such as passwords and Discord credentials are stored in a local `.env` file instead of the repository.
+## What is this project?
 
-## Requirements
+NodeRed_Dashboard is a Docker-based project that connects a Minecraft Java server, Discord, and Node-RED. It provides a web dashboard to monitor chat, send messages, and control basic Minecraft server functions from a single interface.
 
-- Docker Desktop (or Docker Engine with Docker Compose)
+## How is this project installed?
 
-## Setup
+### Requirements
 
-Create a `.env` file in the project root (next to `compose.yml`) and add your credentials:
+- Docker Desktop
+
+### Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/ordjo794/NodeRed_Dashboard.git
+cd NodeRed_Dashboard
+```
+
+2. Create a `.env` file next to `compose.yml`:
 
 ```env
-RCON_PASSWORD=your_secure_password
+RCON_PASSWORD=your_minecraft_rcon_password
 DISCORD_TOKEN=your_discord_bot_token
 DISCORD_WEBHOOK=your_discord_webhook_url
 ```
 
-## Run
-
-Start the project:
+3. Start the project:
 
 ```bash
 docker compose up -d
 ```
 
-Stop the project:
+### Access
 
-```bash
-docker compose down
-```
+- **Minecraft Server:** `localhost:25565`
+- **Node-RED Editor:** `http://localhost:1880`
 
-## Access
+If the Node-RED flows are not loaded automatically, import `flows.json` through **Menu → Import** and click **Deploy**.
 
-| Service | Address |
-|---------|---------|
-| Minecraft Server | `localhost:25565` |
-| Node-RED Editor | `http://localhost:1880` |
+## How does it work?
 
-## Importing Flows
+The project uses Docker Compose to run a Minecraft Java server, Node-RED, and an MQTT broker.
 
-If the flows are not loaded automatically:
-
-1. Open `http://localhost:1880`
-2. Go to **Menu → Import**
-3. Select `flows.json`
-4. Click **Import**
-5. Click **Deploy**
+- Messages sent from the Node-RED dashboard are forwarded to Discord using a webhook.
+- Messages received from Discord are displayed on the dashboard and sent to the Minecraft in-game chat.
+- The dashboard can control the Minecraft server's weather and time through RCON using `@tomsith/node-red-contrib-minecraft`.
 
 ## Security
 
