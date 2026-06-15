@@ -1,0 +1,651 @@
+[
+    {
+        "id": "6bba2a6bf05fbba8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "36cf2d03c6d42972",
+        "type": "serverconfig",
+        "host": "minecraft",
+        "rconPort": 25575,
+        "rconPassword": "teinf"
+    },
+    {
+        "id": "6c0412ec9851cd63",
+        "type": "ui-base",
+        "name": "Dashboard",
+        "path": "/dashboard",
+    "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "dc_token",
+        "type": "discord-token",
+        "name": "MyBot"
+    },
+    {
+        "id": "discord-ui-theme",
+        "type": "ui-theme",
+        "name": "Discord Theme",
+        "colors": {
+            "surface": "#313338",
+            "primary": "#5865f2",
+            "bgPage": "#1e1f22",
+            "groupBg": "#2b2d31",
+            "groupOutline": "#1e1f22"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "4px",
+            "groupGap": "4px",
+            "groupBorderRadius": "8px",
+            "widgetGap": "4px"
+        }
+    },
+    {
+        "id": "44168e0e98c99ed8",
+        "type": "ui-page",
+        "name": "My Dashboard",
+        "ui": "6c0412ec9851cd63",
+        "path": "/dashboard",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "discord-ui-theme",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "10ecf61e9acd3652",
+        "type": "ui-group",
+        "name": "Gaming",
+        "page": "44168e0e98c99ed8",
+        "width": "10",
+        "height": "12",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "c8dc5beed0b5c2c5",
+        "type": "ui-button-group",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Time",
+        "group": "10ecf61e9acd3652",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "label": "TIME OF DAY",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "day",
+                "icon": "",
+                "value": "day",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "eve",
+                "icon": "",
+                "value": "eve",
+                "valueType": "str",
+                "color": "#999999"
+            },
+            {
+                "label": "night",
+                "icon": "",
+                "value": "night",
+                "valueType": "str",
+                "color": "#ff6666"
+            }
+        ],
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "56dcb01b94d80805"
+            ]
+        ]
+    },
+    {
+        "id": "a18966efa67b5ac4",
+        "type": "ui-button-group",
+        "z": "6bba2a6bf05fbba8",
+        "name": "",
+        "group": "10ecf61e9acd3652",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "label": "WEATHER",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": false,
+        "options": [
+            {
+                "label": "clear",
+                "icon": "",
+                "value": "clear",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "rain",
+                "icon": "",
+                "value": "rain",
+                "valueType": "str",
+                "color": "#ff6666"
+            },
+            {
+                "label": "thunder",
+                "icon": "",
+                "value": "thunder",
+                "valueType": "str",
+                "color": "#999999"
+            }
+        ],
+        "topic": "payload",
+        "topicType": "str",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "66f17ff221abce58"
+            ]
+        ]
+    },
+    {
+        "id": "8c7ac784d50ab795",
+        "type": "ui-text",
+        "z": "6bba2a6bf05fbba8",
+        "group": "10ecf61e9acd3652",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "Online Players",
+        "label": "PLAYERS",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#dbdee1",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c583dbba76142659",
+        "type": "ui-template",
+        "z": "6bba2a6bf05fbba8",
+        "group": "10ecf61e9acd3652",
+        "page": "",
+        "ui": "",
+        "name": "Discord General Chat",
+        "order": 4,
+        "width": "7",
+        "height": "7",
+        "format": "<template>\n  <div class=\"discord-container\" ref=\"chatContainer\">\n    <div\n      v-for=\"(line, index) in ((msg && msg.payload) || [])\"\n      :key=\"index\"\n      class=\"discord-message\"\n    >\n      <div class=\"discord-avatar\">\n        <img :src=\"line.avatar || 'https://cdn.discordapp.com/embed/avatars/0.png'\" alt=\"Avatar\" />\n      </div>\n      <div class=\"discord-message-content\">\n        <div class=\"discord-message-header\">\n          <span class=\"discord-author\">{{ line.author }}</span>\n          <span class=\"discord-time\">Today at {{ line.time }}</span>\n        </div>\n        <div v-if=\"line.text\" class=\"discord-text\" v-html=\"line.text.replace(/(@\\w+)/g, '<span class=\\'mention\\'>$1</span>')\"></div>\n        <div v-if=\"line.media && line.media.length > 0\" class=\"discord-image-container\">\n          <template v-for=\"(item, i) in line.media\" :key=\"i\">\n            <video \n              v-if=\"item.type === 'video'\" \n              :src=\"item.url\" \n              class=\"discord-attachment\" \n              autoplay \n              loop \n              muted \n              playsinline \n              @loadeddata=\"scrollToBottom\"\n            ></video>\n            <img \n              v-else \n              :src=\"item.url\" \n              class=\"discord-attachment\" \n              loading=\"lazy\" \n              @load=\"scrollToBottom\" \n            />\n          </template>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script>\nexport default {\n  methods: {\n    scrollToBottom() {\n      const el = this.$refs.chatContainer;\n      if (el) {\n        el.scrollTop = el.scrollHeight;\n      }\n    }\n  },\n  mounted() {\n    this.$nextTick(() => {\n      this.scrollToBottom();\n\n      this.observer = new MutationObserver(() => {\n        this.scrollToBottom();\n      });\n\n      const el = this.$refs.chatContainer;\n      if (el) {\n        this.observer.observe(el, {\n          childList: true,\n          subtree: true\n        });\n      }\n    });\n  },\n  unmounted() {\n    if (this.observer) {\n      this.observer.disconnect();\n    }\n  }\n}\n</script>\n\n<style>\n.discord-container {\n  background-color: #313338;\n  color: #dbdee1;\n  font-family: \"gg sans\", \"Noto Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  height: 100%;\n  min-height: 280px;\n  max-height: 350px;\n  overflow-y: auto;\n  padding: 8px 0;\n  border-radius: 6px;\n}\n.discord-container::-webkit-scrollbar {\n  width: 8px;\n}\n.discord-container::-webkit-scrollbar-track {\n  background: #2b2d31;\n  border-radius: 4px;\n}\n.discord-container::-webkit-scrollbar-thumb {\n  background: #1a1b1e;\n  border-radius: 4px;\n}\n.discord-message {\n  display: flex;\n  padding: 2px 16px 2px 16px;\n  margin-top: 17px;\n}\n.discord-message:hover {\n  background-color: #2e3035;\n}\n.discord-avatar {\n  margin-top: 2px;\n  margin-right: 16px;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  overflow: hidden;\n  cursor: pointer;\n  flex-shrink: 0;\n}\n.discord-avatar img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.discord-message-content {\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n}\n.discord-message-header {\n  display: flex;\n  align-items: baseline;\n  margin-bottom: 2px;\n}\n.discord-author {\n  color: #f2f3f5;\n  font-weight: 500;\n  font-size: 16px;\n  margin-right: .25rem;\n  cursor: pointer;\n  overflow-wrap: anywhere;\n}\n.discord-author:hover {\n  text-decoration: underline;\n}\n.discord-time {\n  font-size: 0.75rem;\n  color: #949ba4;\n  margin-left: 4px;\n  white-space: nowrap;\n}\n.discord-text {\n  font-size: 1rem;\n  line-height: 1.375rem;\n  word-wrap: break-word;\n  user-select: text;\n  color: #dbdee1;\n  white-space: pre-wrap;\n}\n\n/* Mention Highlighting styling */\n.discord-text span.mention {\n  background-color: rgba(88, 101, 242, 0.3);\n  color: #dee0fc;\n  padding: 0 4px;\n  border-radius: 4px;\n  font-weight: 500;\n}\n\n.discord-image-container {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  margin-top: 4px;\n}\n.discord-attachment {\n  max-width: 100%;\n  max-height: 250px;\n  border-radius: 8px;\n  object-fit: contain;\n  align-self: flex-start;\n}\n</style>",
+        "storeOutMessages": true,
+        "passthru": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "19e5753ac1030298",
+        "type": "ui-text-input",
+        "z": "6bba2a6bf05fbba8",
+        "group": "10ecf61e9acd3652",
+        "name": "Type Discord Message",
+        "label": "",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "topic": "payload",
+        "topicType": "str",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 0,
+        "passthru": false,
+        "sendOnDelay": false,
+        "sendOnBlur": false,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": true,
+        "sendOnClear": false,
+        "icon": "send",
+        "iconPosition": "right",
+        "iconInnerPosition": "inside",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "330c2a3e5ccf0386"
+            ]
+        ]
+    },
+    {
+        "id": "56dcb01b94d80805",
+        "type": "world",
+        "z": "6bba2a6bf05fbba8",
+        "name": "",
+        "server": "36cf2d03c6d42972",
+        "action": "time",
+        "x": 350,
+        "y": 140,
+        "wires": [
+            [
+                "d95f9dcfdfd2ab42"
+            ]
+        ]
+    },
+    {
+        "id": "66f17ff221abce58",
+        "type": "world",
+        "z": "6bba2a6bf05fbba8",
+        "name": "",
+        "server": "36cf2d03c6d42972",
+        "action": "weather",
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "c32fb601dcfa8330"
+            ]
+        ]
+    },
+    {
+        "id": "c32fb601dcfa8330",
+        "type": "debug",
+        "z": "6bba2a6bf05fbba8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d95f9dcfdfd2ab42",
+        "type": "debug",
+        "z": "6bba2a6bf05fbba8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c92231a5c1c1b618",
+        "type": "inject",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Every 30s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "a2816162d2e4f825",
+                "6ac4a4fa438b3a56"
+            ]
+        ]
+    },
+    {
+        "id": "a2816162d2e4f825",
+        "type": "rcon",
+        "z": "6bba2a6bf05fbba8",
+        "name": "list players",
+        "server": "36cf2d03c6d42972",
+        "command": "/list",
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "95f503d5551902a2"
+            ]
+        ]
+    },
+    {
+        "id": "95f503d5551902a2",
+        "type": "function",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Parse /list",
+        "func": "const raw = msg.payload || '';\n\nconst match = raw.match(/(\\d+).*?:(.*)?$/);\n\nif (match) {\n    const count = match[1];\n    const names = (match[2] || '').trim();\n\n    msg.payload = count === '0'\n        ? 'No players online'\n        : count + ' online: ' + names;\n} else {\n    msg.payload = raw;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "8c7ac784d50ab795"
+            ]
+        ]
+    },
+    {
+        "id": "6ac4a4fa438b3a56",
+        "type": "rcon",
+        "z": "6bba2a6bf05fbba8",
+        "name": "list players",
+        "server": "36cf2d03c6d42972",
+        "command": "/list",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "c25512f0dd1eae35"
+            ]
+        ]
+    },
+    {
+        "id": "c25512f0dd1eae35",
+        "type": "function",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Parse /list",
+        "func": "const raw = msg.payload || '';\n\nif (raw.includes(\"Unknown command\") || raw.includes(\"error\") || raw === \"\") {\n    return null;\n}\n\nconst match = raw.match(/(\\d+).*?:(.*)?$/);\n\nif (match) {\n    const count = match[1];\n    const names = (match[2] || '').trim();\n\n    msg.payload = count === '0'\n        ? 'No players online'\n        : count + ' online: ' + names;\n} else {\n    return null;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 320,
+        "wires": [
+            [
+                "1d99c873a90264b0"
+            ]
+        ]
+    },
+    {
+        "id": "1d99c873a90264b0",
+        "type": "rbe",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Only on change",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": false,
+        "property": "payload",
+        "topi": "topic",
+        "x": 700,
+        "y": 320,
+        "wires": [
+            [
+                "9f3c5da6ee5e056f"
+            ]
+        ]
+    },
+    {
+        "id": "9f3c5da6ee5e056f",
+        "type": "discordMessageManager",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Send to Discord",
+        "channel": "1511621475113762866",
+        "token": "dc_token",
+        "x": 900,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "087bbbf27379950a",
+        "type": "discordMessage",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Discord #general",
+        "channelIdFilter": "1511621388795121678",
+        "token": "dc_token",
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "40a40e35d20220cc",
+                "4af7dc2f42a901f1"
+            ]
+        ]
+    },
+    {
+        "id": "40a40e35d20220cc",
+        "type": "function",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Format dashboard chat",
+        "func": "const MAX_MESSAGES = 20;\n\nlet text = String(msg.payload || '').trim();\nlet media = [];\n\nconst mentions = msg.mentions || (msg.data && msg.data.mentions) || [];\nif (Array.isArray(mentions)) {\n    mentions.forEach(m => {\n        const regex = new RegExp(`<@!?${m.id}>`, 'g');\n        text = text.replace(regex, `@${m.username}`);\n    });\n}\n\nfunction addMedia(url, type) {\n    if (!url) return;\n    if (!media.some(m => m.url === url)) {\n        media.push({ type, url });\n    }\n}\n\nconst embeds = msg.embeds || (msg.data && msg.data.embeds) || [];\nif (Array.isArray(embeds)) {\n    embeds.forEach(embed => {\n        if (embed.video && embed.video.url) {\n            addMedia(embed.video.url, 'video');\n        } else if (embed.image && embed.image.url) {\n            addMedia(embed.image.url, 'image');\n        } else if (embed.thumbnail && embed.thumbnail.url) {\n            addMedia(embed.thumbnail.url, 'image');\n        }\n        if (embed.url && text.includes(embed.url)) {\n            text = text.replace(embed.url, '');\n        }\n    });\n}\n\nconst attachments = msg.attachments || (msg.data && msg.data.attachments);\nif (attachments) {\n    const attArray = Array.isArray(attachments) ? attachments : (typeof attachments.values === 'function' ? Array.from(attachments.values()) : Object.values(attachments));\n    attArray.forEach(att => {\n        if (att.url) {\n            const isVideo = att.contentType?.startsWith('video') || att.url.match(/\\.(mp4|webm|mov)($|\\?)/i);\n            const isImage = att.contentType?.startsWith('image') || att.url.match(/\\.(jpeg|jpg|gif|png|webp)($|\\?)/i);\n            if (isVideo) {\n                addMedia(att.url, 'video');\n            } else if (isImage) {\n                addMedia(att.url, 'image');\n            }\n            if (text.includes(att.url)) {\n                text = text.replace(att.url, '');\n            }\n        }\n    });\n}\n\nconst urlRegex = /(https?:\\/\\/[^\\s]+)/g;\nconst foundUrls = text.match(urlRegex) || [];\nfoundUrls.forEach(url => {\n    const isMediaFile = url.match(/\\.(gif|png|jpg|jpeg|webp|mp4|webm)($|\\?)/i);\n    const isGifPlatform = url.includes('tenor.com') || url.includes('giphy.com');\n    if (isMediaFile || isGifPlatform) {\n        if (isMediaFile) {\n            const type = url.match(/\\.(mp4|webm)($|\\?)/i) ? 'video' : 'image';\n            addMedia(url, type);\n        }\n        text = text.replace(url, '');\n    }\n});\n\ntext = text.replace(/\\s+/g, ' ').trim();\n\nif (!text && media.length === 0) {\n    return null;\n}\n\nconst author = msg.author?.globalName\n    || msg.author?.username\n    || msg.data?.author?.globalName\n    || msg.data?.author?.username\n    || 'Discord';\n\nlet avatar = \"https://cdn.discordapp.com/embed/avatars/0.png\";\nif (msg.author && typeof msg.author.displayAvatarURL === 'function') {\n    avatar = msg.author.displayAvatarURL();\n} else if (msg.data?.author && typeof msg.data.author.displayAvatarURL === 'function') {\n    avatar = msg.data.author.displayAvatarURL();\n} else if (msg.author?.avatarURL) {\n    avatar = msg.author.avatarURL;\n} else if (msg.data?.author?.avatarURL) {\n    avatar = msg.data.author.avatarURL;\n}\n\nconst now = new Date();\nconst time = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });\n\nlet messages = flow.get('discordGeneralChatLines') || [];\nmessages.push({ \n    id: msg.id,\n    time, \n    author, \n    text, \n    media, \n    avatar \n});\nmessages = messages.slice(-MAX_MESSAGES);\nflow.set('discordGeneralChatLines', messages);\n\nmsg.payload = messages;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 420,
+        "wires": [
+            [
+                "c583dbba76142659"
+            ]
+        ]
+    },
+    {
+        "id": "4af7dc2f42a901f1",
+        "type": "function",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Format to /tellraw",
+        "func": "// Block the bot from reading its own messages\nif (msg.author && msg.author.bot) return null;\n\nlet username = msg.author.username || \"Discord\";\nlet content = msg.payload;\n\n// Escape quotes safely\ncontent = content.replace(/\"/g, '\\\\\"');\n\n// Pass the exact raw string the rcon node expects with leading slash\nmsg.payload = `/tellraw @a {\"text\":\"[Discord] <${username}> ${content}\",\"color\":\"blue\"}`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "5538d808c6b6e7d3"
+            ]
+        ]
+    },
+    {
+        "id": "330c2a3e5ccf0386",
+        "type": "function",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Format Webhook",
+        "func": "msg.headers = {\n    \"content-type\": \"application/json\"\n};\n\nmsg.payload = {\n    \"content\": msg.payload\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "4ad652032dc85213"
+            ]
+        ]
+    },
+    {
+        "id": "4ad652032dc85213",
+        "type": "http request",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Post to Discord",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 740,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5538d808c6b6e7d3",
+        "type": "rcon",
+        "z": "6bba2a6bf05fbba8",
+        "name": "Send RCON",
+        "server": "36cf2d03c6d42972",
+        "command": "",
+        "x": 730,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b8f694a6d344923",
+        "type": "inject",
+        "z": "6bba2a6bf05fbba8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 40,
+        "wires": [
+            [
+                "faf21a5c6d74f682"
+            ]
+        ]
+    },
+    {
+        "id": "9ede1561c5cda4f9",
+        "type": "debug",
+        "z": "6bba2a6bf05fbba8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "faf21a5c6d74f682",
+        "type": "serverinfo",
+        "z": "6bba2a6bf05fbba8",
+        "name": "",
+        "server": "36cf2d03c6d42972",
+        "x": 390,
+        "y": 40,
+        "wires": [
+            [
+                "9ede1561c5cda4f9"
+            ]
+        ]
+    }
+]
