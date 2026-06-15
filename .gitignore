@@ -1,0 +1,6 @@
+# Ignore secrets
+.env
+
+# Ignore heavy/private container data folders
+minecraft/
+nodered/
