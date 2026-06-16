@@ -562,7 +562,7 @@
         "ret": "txt",
         "paytoqs": "ignore",
         "url": "",
-        "tls": "",
+        "tls": ""paste ur discord webhook here"",
         "persist": false,
         "proxy": "",
         "insecureHTTPParser": false,
